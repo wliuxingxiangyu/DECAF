@@ -4,6 +4,7 @@ For debian like users (etc. Ubuntu or Debian), you can follow this step to build
 Install dependencies.
 ```shell
 sudo apt-get install -y libsdl1.2-dev zlib1g-dev libglib2.0-dev libbfd-dev build-essential binutils qemu libboost-dev git libtool autoconf xorg-dev
+
 ---hz
 sudo apt-get install libtool autoconf xorg-dev
 Err:1 http://cn.archive.ubuntu.com/ubuntu bionic/main amd64 libfreetype6-dev amd64 2.8.1-2ubuntu2
