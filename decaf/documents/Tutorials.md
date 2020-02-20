@@ -1,6 +1,6 @@
 # Tutorials
 
-This part is a tutorials on developing plugins.
+This part is a tutorials on developing plugins.开发插件的教程
 
 ## Introduction
 

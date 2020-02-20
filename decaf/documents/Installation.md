@@ -8,7 +8,7 @@
 
 #### Step 0
 
-DECAF is based on QEMU. It's useful to have a vanilla QEMU for testing and image development. Also, you need to install some stuff to compile qemu/decaf.
+DECAF is based on QEMU. It's useful to have a vanilla普通的 QEMU for testing and image development. Also, you need to install some stuff to compile qemu/decaf.
 
 ```
 sudo apt-get build-dep qemu
@@ -40,7 +40,7 @@ export DECAF_PATH=`pwd`
 
 #### Step 3
 
-Configure the sleuthkit library.
+Configure the sleuthkit library.侦探工具包
 
 ```shell
 cd ${DECAF_PATH}/shared/sleuthkit
@@ -95,7 +95,7 @@ We use docker volume to share files between docker images and the host system. F
 docker volume create decafvolume
 ```
 
-The [guest images](https://github.com/sycurelab/DECAFImages) or malicious samples can be stored in this volume, so the docker image can access it. Or the out put of DECAF plugin can be sotred in this volume, so that we can extract the analysis results.
+The [guest images](https://github.com/sycurelab/DECAFImages) or malicious samples can be stored in this volume, so the docker image can access it. Or the output of DECAF plugin can be sotred in this volume, so that we can extract the analysis results.
 
 ### Build the docker image
 
@@ -116,13 +116,13 @@ sudo docker run -it -e DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix -v $HOME/.Xautho
 
 ### Control DECAF within Docker image
 
-Within  the terminal used to run the docker image, users can input commmands of DECAF or DECAF plugins to control DECAF. For example, to load plugin of DECAF(suppose malscalpel is stored in volume decaf, which is named `/app/`  after  mounted)
+Within  the terminal used to run the docker image, users can input commmands of DECAF or DECAF plugins to control DECAF. For example, to load plugin of DECAF(suppose malscalpel手术刀 is stored in volume decaf, which is named `/app/`  after  mounted)
 
 load_plugin /app/malscalpel.so
 
 ### Share files between guest os and host system
 
-We use samba to  share files. If you  read Dockerfile carefully, you will find taht we set `/app/` as the share folder of samba. When we run this docker image, we mount the created docker volume `decafvolume`  as `/app/`. In windows xp  guest OS, the files stored in volume decafvolume can be accessed `10.0.2.2|qemu`. For example, to upload a  file to windows xp guest os, take the following steps.
+We use samba to  share files. If you  read Dockerfile carefully, you will find taht we set `/app/` as the share folder of samba(Samba是在Linux和UNIX系统上实现SMB协议的一个免费软件，由服务器及客户端程序构成). When we run this docker image, we mount the created docker volume `decafvolume`  as `/app/`. In windows xp  guest OS, the files stored in volume decafvolume can be accessed `10.0.2.2|qemu`. For example, to upload a  file to windows xp guest os, take the following steps.
 
 1. Copy shared file and windows xp image to docker volume `decafvolume`.
 2. Run the docker image and mount the volume to `/app/` target.
